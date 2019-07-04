@@ -16,10 +16,10 @@ import javax.servlet.Filter;
  */
 @Configuration
 @EnableConfigurationProperties(TokenProperties.class)
+@ConditionalOnProperty("token.includes")
 public class TokenAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean(TokenFiler.class)
-    @ConditionalOnProperty("token.includes")
     public FilterRegistrationBean tokenFilter(TokenProperties tokenProperties) {
         FilterRegistrationBean<Filter> bean = new FilterRegistrationBean<>();
         bean.setFilter(new TokenFiler(tokenProperties.getExcludes()));

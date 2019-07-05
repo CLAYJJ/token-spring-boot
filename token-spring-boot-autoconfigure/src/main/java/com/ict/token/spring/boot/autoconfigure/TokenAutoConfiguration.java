@@ -1,10 +1,11 @@
 package com.ict.token.spring.boot.autoconfigure;
 
+import com.ict.token.spring.boot.autoconfigure.conditions.TokenCondition;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
@@ -16,7 +17,7 @@ import javax.servlet.Filter;
  */
 @Configuration
 @EnableConfigurationProperties(TokenProperties.class)
-@ConditionalOnProperty("token.includes")
+@Conditional(TokenCondition.class)
 public class TokenAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean(TokenFiler.class)

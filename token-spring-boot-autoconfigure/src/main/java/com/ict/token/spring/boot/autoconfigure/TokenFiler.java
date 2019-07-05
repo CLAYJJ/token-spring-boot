@@ -31,11 +31,21 @@ public class TokenFiler implements Filter {
         }
         String token = req.getHeader(TOKEN_HEADER);
         String result = TokenUtils.checkToken(token);
+
         if (JSONObject.parseObject(result).getString("code").equals(ResponseCode.SUCCESS.getName()))
             chain.doFilter(request, response);
         else {
-
             response.getWriter().write(result);
         }
+    }
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 /**
- * token配置条件：配置了token.enable = true和token.includes就满足条件，否则不满足
+ * token配置条件：配置了token.enable = true否则不满足
  * @author Dante
  */
 public class TokenCondition extends SpringBootCondition {

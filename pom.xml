@@ -6,7 +6,7 @@
 
     <groupId>com.ict</groupId>
     <artifactId>token-spring-boot</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <modules>
         <module>token-spring-boot-starter</module>
         <module>token-spring-boot-autoconfigure</module>
